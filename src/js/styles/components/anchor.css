@@ -1,5 +1,5 @@
 $themePath: ../;
-@value activeIconColor, controlBrandColor, iconHoverColor, linkColor, linkHoverColor from '$(themePath)/base/colors.css';
+@value activeIconColor, controlBrandColor, iconColor, iconHoverColor, linkColor, linkHoverColor from '$(themePath)/base/colors.css';
 @value font from '$(themePath)/base/font.css';
 @value linkTextDecoration, spacingUnit from '$(themePath)/base/defaults.css';
 @value controlIcon from '$(themePath)/base/icons.css';
@@ -16,8 +16,16 @@ $themePath: ../;
   text-decoration: underline;
 }
 
+.iconPrimary path {
+  stroke: linkColor;
+}
+
 .icon {
   composes: controlIcon;
+}
+
+.icon:not(.iconPrimary) path {
+  stroke: iconColor;
 }
 
 .label {
@@ -38,10 +46,6 @@ $themePath: ../;
     margin-right: 0;
     margin-left: 12px;
   }
-}
-
-.iconPrimary path {
-  stroke: linkColor;
 }
 
 .common:hover:not(.primary) .icon path {
