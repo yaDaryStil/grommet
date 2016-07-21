@@ -10,7 +10,3 @@ $themePath: ../;
   flex: 0 0 auto;
   transition: all .3s ease-in-out;
 }
-
-.controlIcon path {
-  stroke: iconColor;
-}
