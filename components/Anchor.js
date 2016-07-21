@@ -102,7 +102,7 @@ var Anchor = function (_Component) {
           a11yTitleId: (id || '') + 'anchor-next-title-id' });
       }
 
-      var iconClasses = (0, _classnames4.default)(_anchor2.default.icon, (_classnames = {}, (0, _defineProperty3.default)(_classnames, _anchor2.default.iconDisabled, disabled), (0, _defineProperty3.default)(_classnames, _anchor2.default.iconReverse, reverse), (0, _defineProperty3.default)(_classnames, _anchor2.default.iconAnimate, defaultIcon && !disabled), _classnames));
+      var iconClasses = (0, _classnames4.default)(_anchor2.default.icon, (_classnames = {}, (0, _defineProperty3.default)(_classnames, _anchor2.default.iconDisabled, disabled), (0, _defineProperty3.default)(_classnames, _anchor2.default.iconReverse, reverse), (0, _defineProperty3.default)(_classnames, _anchor2.default.iconAnimate, defaultIcon && !disabled), (0, _defineProperty3.default)(_classnames, _anchor2.default.iconPrimary, primary), _classnames));
 
       var iconNode = void 0;
       if (iconChild) {

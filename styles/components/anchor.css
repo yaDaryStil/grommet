@@ -40,7 +40,7 @@ $themePath: ../;
   }
 }
 
-.primary .icon path {
+.iconPrimary path {
   stroke: linkColor;
 }
 
