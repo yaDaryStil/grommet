@@ -40,7 +40,8 @@ export default class Anchor extends Component {
       {
         [styles.iconDisabled]: disabled,
         [styles.iconReverse]: reverse,
-        [styles.iconAnimate]: defaultIcon && !disabled
+        [styles.iconAnimate]: defaultIcon && !disabled,
+        [styles.iconPrimary]: primary
       }
     );
 
