@@ -1,0 +1,16 @@
+$themePath: ../;
+@value iconColor from '$(themePath)/base/colors.css';
+
+.controlIcon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 12px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  transition: all .3s ease-in-out;
+}
+
+.controlIcon path {
+  stroke: iconColor;
+}

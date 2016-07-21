@@ -1,0 +1,32 @@
+@value brandColor: #8C50FF;
+@value linkHoverColor: #000;
+@value linkColor: #8C50FF;
+@value darkColor: rgba(255, 255, 255, 0.85);
+@value darkStroke: rgba(255, 255, 255, 0.7);
+@value darkHoverStroke: #fff;
+@value darkHoverColor: #fff;
+@value iconColor: #666;
+@value iconHoverColor: #000;
+@value activeIconColor: #000;
+@value controlBrandColor: #8C50FF;
+
+.dark {
+  color: darkColor;
+}
+
+.dark .invertWhenDark path {
+  stroke: darkStroke;
+}
+
+.dark .invertWhenDark:hover {
+  color: darkHoverColor;
+}
+
+.dark .invertWhenDark:hover path {
+  stroke: darkHoverStroke;
+}
+
+.backgroundColorIndex-brand {
+  background-color: brandColor;
+  composes: dark;
+}

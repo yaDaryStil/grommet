@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'),
+    local('SourceSansPro-Light'),
+    url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGPS42wKzre0cxmO5m5GyTsY.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'),
+    local('SourceSansPro-Regular'),
+    url("https://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlEY6Fu39Tt9XkmtSosaMoEA.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'),
+    local('SourceSansPro-Bold'),
+    url("https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGLlcMrNrsnL9dgADnXgYJjs.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Source Sans Pro Italic'),
+    local('SourceSansPro-It'),
+    url("https://fonts.gstatic.com/s/sourcesanspro/v9/M2Jd71oPJhLKp0zdtTvoMzpKUtbt71woJ25xl7KOGD0.ttf") format('truetype');
+}
+
+@value font: 'Source Sans Pro', Arial, sans-serif;
+@value h1FontSize: 48px;
+@value h1LineHeight: 1.125;
+@value h2FontSize: 36px;
+@value h2LineHeight: 1.23;
+@value h3FontSize: 24px;
+@value h3LineHeight: 1.333;
+@value h4FontSize: 18px;
+@value h4LineHeight: 1.333;
+@value h5FontSize: 16px;
+@value h5LineHeight: 1.375;
+@value h6FontSize: 16px;
+@value h6LineHeight: 1.375;

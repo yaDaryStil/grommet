@@ -1,6 +1,11 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import path from 'path';
+import cssnext from 'postcss-cssnext';
+import modulesValues from 'postcss-modules-values';
+import atImport from 'postcss-import';
+import vars from 'postcss-simple-vars';
+import mixins from 'postcss-mixins';
 
 export function getPackageJSON () {
   delete require.cache[require.resolve('./package.json')];
@@ -17,11 +22,18 @@ export default {
     'README.md',
     {
       asset: 'src/js/**',
-      babel: true
+      babel: true,
+      ignores: [
+        'styles'
+      ]
     },
     {
       asset: 'src/scss/**',
       dist: 'dist/scss/'
+    },
+    {
+      asset: 'src/js/styles/**',
+      dist: 'dist/styles/'
     },
     {
       asset: 'src/utils/**',
@@ -88,11 +100,17 @@ export default {
     externals: {
       'react': 'React',
       'react-dom': 'ReactDOM'
-    }
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.css$/,
+          loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+        }
+      ]
+    },
+    postcss: () => [atImport(), mixins, vars, cssnext, modulesValues]
   },
   distPreprocess: ['generate-index-icons', 'dist-css'],
-  scsslint: true,
-  testPaths: [
-    'test/**/*.js'
-  ]
+  scsslint: true
 };

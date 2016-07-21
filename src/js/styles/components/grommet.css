@@ -1,0 +1,45 @@
+$themePath: ../;
+@value h1FontSize, h1LineHeight, h2FontSize, h2LineHeight, h3FontSize, h3LineHeight, h4FontSize, h4LineHeight, h5FontSize, h5LineHeight, h6FontSize, h6LineHeight, font from '$(themePath)/base/font.css';
+
+@define-mixin heading $fontSize, $lineHeight {
+  font-weight: 100;
+  max-width: 100%;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.headingCommon > strong {
+  font-weight: 600;
+}
+
+.default {
+  font-family: font;
+}
+
+.default h1 {
+  @mixin heading h1FontSize, h1LineHeight;
+}
+
+.default h2 {
+  @mixin heading h2FontSize, h2LineHeight;
+}
+
+.default h3 {
+  @mixin heading h3FontSize, h3LineHeight;
+}
+
+.default h4 {
+  @mixin heading h4FontSize, h4LineHeight;
+}
+
+.default h5 {
+  @mixin heading h5FontSize, h5LineHeight;
+}
+
+.default h6 {
+  @mixin heading h6FontSize, h6LineHeight;
+}

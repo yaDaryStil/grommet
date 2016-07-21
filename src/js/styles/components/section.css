@@ -1,0 +1,7 @@
+.common {
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 24px;
+  display: flex;
+  box-sizing: inherit;
+}

@@ -1,14 +1,15 @@
-// (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+// (C) Copyright 2014-2016 Hewlett Packard Enterprise Development LP
 
-import React from 'react';
+import React, { Component } from 'react';
 
-const CLASS_ROOT = "grommet";
+import styles from '../styles/components/grommet.css';
 
-export default props => {
-
-  return (
-    <div className={CLASS_ROOT}>
-      {props.children}
-    </div>
-  );
+export default class Grommet extends Component {
+  render () {
+    return (
+      <div className={styles.default}>
+        {this.props.children}
+      </div>
+    );
+  }
 };

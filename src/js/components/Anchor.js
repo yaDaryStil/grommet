@@ -4,63 +4,74 @@ import React, { Children, Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import LinkNextIcon from './icons/base/LinkNext';
 
-import CSSClassnames from '../utils/CSSClassnames';
-
-const CLASS_ROOT = CSSClassnames.ANCHOR;
+import styles from '../styles/components/anchor.css';
+import colors from '../styles/base/colors.css';
 
 export default class Anchor extends Component {
-
   render () {
-    let icon;
-    if (this.props.icon) {
-      icon = this.props.icon;
-    } else if (this.props.primary) {
-      icon = (
-        <LinkNextIcon a11yTitle={`${this.props.id}anchor-next-title`}
-          a11yTitleId={`${this.props.id}anchor-next-title-id`} />
-      );
-    }
+    const {
+      a11yTitle, children, className, disabled, href, icon, id,
+      label, onClick, primary, reverse, tag, target
+    } = this.props;
 
-    if (icon && !this.props.primary && !this.props.label) {
-      icon = <span className={`${CLASS_ROOT}__icon`}>{icon}</span>;
-    }
-
-    let hasIcon = icon !== undefined;
-    let children = Children.map(this.props.children, child => {
+    let hasIcon = icon !== undefined || primary;
+    let childrenNode = Children.map(children, child => {
       if (child && child.type && child.type.icon) {
         hasIcon = true;
-        child = <span className={`${CLASS_ROOT}__icon`}>{child}</span>;
+        child = <span className={styles.icon}>{child}</span>;
       }
       return child;
     });
 
-    let classes = classnames(
-      CLASS_ROOT,
-      this.props.className,
+    let iconChild;
+    let defaultIcon;
+    if (icon) {
+      iconChild = icon;
+    } else if (primary) {
+      defaultIcon = true;
+      iconChild = (
+        <LinkNextIcon a11yTitle={`${id || ''}anchor-next-title`}
+          a11yTitleId={`${id || ''}anchor-next-title-id`} />
+      );
+    }
+
+    const iconClasses = classnames(
+      styles.icon,
       {
-        [`${CLASS_ROOT}--animate-icon`]: hasIcon && this.props.animateIcon !== false,
-        [`${CLASS_ROOT}--disabled`]: this.props.disabled,
-        [`${CLASS_ROOT}--icon`]: icon || hasIcon,
-        [`${CLASS_ROOT}--icon-label`]: hasIcon && this.props.label,
-        [`${CLASS_ROOT}--primary`]: this.props.primary,
-        [`${CLASS_ROOT}--reverse`]: this.props.reverse
+        [styles.iconDisabled]: disabled,
+        [styles.iconReverse]: reverse,
+        [styles.iconAnimate]: defaultIcon && !disabled
+      }
+    );
+
+    let iconNode;
+    if (iconChild) {
+      iconNode = <span className={iconClasses}>{iconChild}</span>;
+    }
+
+    const classes = classnames(
+      className,
+      styles.common,
+      colors.invertWhenDark,
+      {
+        [styles.disabled]: disabled,
+        [styles.hasIcon]: hasIcon,
+        [styles.iconLabel]: hasIcon && label,
+        [styles.primary]: primary
       }
     );
 
     if (!children) {
-      children = this.props.label;
+      childrenNode = <span className={styles.label}>{label}</span>;
     }
 
-    const first = this.props.reverse ? children : icon;
-    const second = this.props.reverse ? icon : children;
+    const first = reverse ? childrenNode : iconNode;
+    const second = reverse ? iconNode : childrenNode;
 
-    const Component = this.props.tag;
+    const Component = tag;
     return (
-      <Component id={this.props.id} className={classes}
-        href={this.props.href}
-        target={this.props.target}
-        onClick={this.props.onClick}
-        aria-label={this.props.a11yTitle}>
+      <Component id={id} className={classes} href={href} target={target}
+        onClick={onClick} aria-label={a11yTitle}>
         {first}
         {second}
       </Component>
@@ -70,7 +81,6 @@ export default class Anchor extends Component {
 
 Anchor.propTypes = {
   a11yTitle: PropTypes.string,
-  animateIcon: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
   icon: PropTypes.element,

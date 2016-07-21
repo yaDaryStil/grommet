@@ -1,0 +1,71 @@
+$themePath: ../;
+@value activeIconColor, controlBrandColor, iconHoverColor, linkColor, linkHoverColor from '$(themePath)/base/colors.css';
+@value font from '$(themePath)/base/font.css';
+@value linkTextDecoration, spacingUnit from '$(themePath)/base/defaults.css';
+@value controlIcon from '$(themePath)/base/icons.css';
+
+.common {
+  color: inherit;
+  font-family: font;
+  text-decoration: linkTextDecoration;
+  cursor: pointer;
+}
+
+.common:hover {
+  color: linkHoverColor;
+  text-decoration: underline;
+}
+
+.icon {
+  composes: controlIcon;
+}
+
+.label {
+  vertical-align: middle;
+}
+
+.iconReverse {
+  margin-right: 0;
+  margin-left: 12px;
+}
+
+.primary,
+.iconLabel {
+  font-size: 19px;
+  font-weight: 600;
+
+  html.rtl & {
+    margin-right: 0;
+    margin-left: 12px;
+  }
+}
+
+.primary .icon path {
+  stroke: linkColor;
+}
+
+.common:hover:not(.primary) .icon path {
+  stroke: iconHoverColor;
+}
+
+.primary.iconLabel:hover .iconAnimate {
+  transform: translateX(3px);
+}
+
+.hasIcon {
+  display: inline-block;
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.disabled:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.disabled:hover:not(.primary) {
+  color: linkColor;
+}
