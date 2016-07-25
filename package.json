@@ -1,7 +1,7 @@
 {
   "name": "grommet",
   "version": "0.6.10",
-  "main": "src/js/index.js",
+  "main": "index.js",
   "description": "The most advanced UX framework for enterprise applications.",
   "authors": [
     "Alan Souza",
@@ -22,9 +22,6 @@
   "engine-strict": true,
   "engines": {
     "node": ">= 4.4.0"
-  },
-  "scripts": {
-    "test": "gulp test:coverage"
   },
   "dependencies": {
     "classnames": "^2.2.3",
@@ -51,13 +48,14 @@
     "mkdirp": "^0.5.1",
     "moment": "^2.13.0",
     "react": "^15.0.2",
-    "react-addons-transition-group": "^15.2.1",
     "react-dom": "^15.0.2",
     "react-gravatar": "^2.0.0",
     "react-intl": "^2.1.2",
     "shelljs": "^0.7.0",
     "superagent": "^1.1.0",
-    "yargs": "^4.6.0"
+    "yargs": "^4.6.0",
+    "csjs": "^1.0.5",
+    "insert-css": "^1.0.0"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.2.0",
