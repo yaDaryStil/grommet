@@ -5,10 +5,7 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 import Anchor from '../../src/js/components/Anchor';
-import CSSClassnames from '../../src/js/utils/CSSClassnames';
 import FakeIcon from '../mocks/FakeIcon';
-
-const CLASS_ROOT = CSSClassnames.ANCHOR;
 
 test('loads a basic Anchor', (t) => {
   t.plan(2);
@@ -16,7 +13,7 @@ test('loads a basic Anchor', (t) => {
   shallowRenderer.render(React.createElement(Anchor, { href: 'test' }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
@@ -35,7 +32,7 @@ test('loads a primary Anchor', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--primary`) > -1) {
+  if (anchorElement.props.className.indexOf('primary') > -1) {
     t.pass('Anchor has primary class');
   } else {
     t.fail('Anchor does not have primary class');
@@ -52,13 +49,13 @@ test('loads a disabled Anchor', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--primary`) > -1) {
+  if (anchorElement.props.className.indexOf('primary') > -1) {
     t.pass('Anchor has primary class');
   } else {
     t.fail('Anchor does not have primary class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--disabled`) > -1) {
+  if (anchorElement.props.className.indexOf('disabled') > -1) {
     t.pass('Anchor has disabled class');
   } else {
     t.fail('Anchor does not have disabled class');
@@ -74,13 +71,13 @@ test('loads a clickable Anchor', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--disabled`) === -1) {
+  if (anchorElement.props.className.indexOf('disabled') === -1) {
     t.pass('Anchor does not have disabled class');
   } else {
     t.fail('Anchor has disabled class');
@@ -96,13 +93,13 @@ test('loads an Anchor with an icon', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--icon`) !== -1) {
+  if (anchorElement.props.className.indexOf('hasIcon') !== -1) {
     t.pass('Anchor has icon class');
   } else {
     t.fail('Anchor does not have icon class');
@@ -125,13 +122,13 @@ test('loads an Anchor with an icon and label', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--icon-label`) !== -1) {
+  if (anchorElement.props.className.indexOf('iconLabel') !== -1) {
     t.pass('Anchor has icon-label class');
   } else {
     t.fail('Anchor does not have icon-label class');
@@ -141,7 +138,7 @@ test('loads an Anchor with an icon and label', (t) => {
     anchorElement.props.children.length, 2, 'Anchor has two children'
   );
   t.equal(
-    anchorElement.props.children[1], 'test', 'Anchor has label'
+    anchorElement.props.children[1].props.children, 'test', 'Anchor has label'
   );
 });
 
@@ -155,13 +152,13 @@ test('loads an Anchor with an icon and label reverse', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--icon-label`) !== -1) {
+  if (anchorElement.props.className.indexOf('iconLabel') !== -1) {
     t.pass('Anchor has icon-label class');
   } else {
     t.fail('Anchor does not have icon-label class');
@@ -171,7 +168,7 @@ test('loads an Anchor with an icon and label reverse', (t) => {
     anchorElement.props.children.length, 2, 'Anchor has two children'
   );
   t.equal(
-    anchorElement.props.children[0], 'test', 'Anchor has label'
+    anchorElement.props.children[0].props.children, 'test', 'Anchor has label'
   );
 });
 
@@ -183,13 +180,13 @@ test('loads an Anchor with a children icon', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
   }
 
-  if (anchorElement.props.className.indexOf(`${CLASS_ROOT}--icon`) !== -1) {
+  if (anchorElement.props.className.indexOf('hasIcon') !== -1) {
     t.pass('Anchor has icon class');
   } else {
     t.fail('Anchor does not have icon class');
@@ -211,7 +208,7 @@ test('loads an Anchor with a children text', (t) => {
   }));
   const anchorElement = shallowRenderer.getRenderOutput();
 
-  if (anchorElement.props.className.indexOf(CLASS_ROOT) > -1) {
+  if (anchorElement.props.className.indexOf('common') > -1) {
     t.pass('Anchor has class');
   } else {
     t.fail('Anchor does not have anchor class');
